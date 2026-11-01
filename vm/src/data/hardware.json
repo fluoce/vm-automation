@@ -1,0 +1,22 @@
+{
+  "cpu": {
+    "model": "AMD Ryzen 5 7535HS with Radeon Graphics        ",
+    "logicalCores": 12,
+    "architecture": "x64",
+    "speed": 3294
+  },
+  "memory": {
+    "total": 16452980736,
+    "free": 3960393728,
+    "used": 12492578816
+  },
+  "disk": {
+    "total": 480380260352,
+    "free": 238139731968,
+    "available": 238139731968,
+    "used": 242240528384
+  },
+  "metadata": {
+    "scannedAt": "2026-11-01T18:17:37.165Z"
+  }
+}
