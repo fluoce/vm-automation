@@ -1,7 +1,7 @@
 node_modules
 
-log/*
-!log/.gitkepp
+vm/src/log/*
+!vm/src/log/.gitkepp
 
-data/*
-!data/.gitkepp
+vm/src/data/*
+!vm/src/data/.gitkepp
