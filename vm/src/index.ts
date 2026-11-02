@@ -1,8 +1,17 @@
-import { osScript, hardwareScript } from "./script/index.ts";
+import {
+  osScript,
+  userScript,
+  hardwareScript,
+  networkScript,
+  portScript,
+} from "./script/index.ts";
 
 async function vmScan() {
-  await osScript();
+  // await osScript();
+  await userScript();
   await hardwareScript();
+  // await networkScript();
+  // await portScript();
 }
 
-vmScan();
+vmScan().then(() => console.log("VM scan done"));
