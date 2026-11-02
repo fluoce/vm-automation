@@ -3,3 +3,5 @@ export * from "./user-script.ts";
 export * from "./hardware-script.ts";
 export * from "./network-script.ts";
 export * from "./port-script.ts";
+export * from "./docker-script.ts";
+export * from "./service-script.ts";
