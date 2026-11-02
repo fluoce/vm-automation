@@ -10,19 +10,19 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function dockerScript() {
-  const [di, dc, dis, dv] = await Promise.all([
-    dockerInfo(),
-    dockerContainers(),
-    dockerImages(),
-    dockerVolumes(),
-  ]);
-  const dockeri = {
-    dockerInfo: di,
-    dockerContainers: dc,
-    dockerImages: dis,
-    dockerVolumes: dv,
-  };
   tryCatchUtil(async () => {
+    const [di, dc, dis, dv] = await Promise.all([
+      dockerInfo(),
+      dockerContainers(),
+      dockerImages(),
+      dockerVolumes(),
+    ]);
+    const dockeri = {
+      dockerInfo: di,
+      dockerContainers: dc,
+      dockerImages: dis,
+      dockerVolumes: dv,
+    };
     const dockerJosnFilePath = resolve(pathConfig.dockerPath);
     await writeFile(
       dockerJosnFilePath,

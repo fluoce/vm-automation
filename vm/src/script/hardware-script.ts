@@ -58,9 +58,6 @@ export async function hardwareScript() {
       usb: u,
       printer: p,
       battery: by,
-      metadata: {
-        scannedAt: new Date().toISOString(),
-      },
     };
     const hardwareJosnFilePath = resolve(pathConfig.hardwarePath);
     await writeFile(

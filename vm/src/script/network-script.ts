@@ -5,15 +5,15 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function networkScript() {
-  const [ni, ngd] = await Promise.all([
-    networkInterfaces(),
-    networkGatewayDefault(),
-  ]);
-  const networkInfo = {
-    networkInterfaces: ni,
-    networkGatewayDefault: ngd,
-  };
   tryCatchUtil(async () => {
+    const [ni, ngd] = await Promise.all([
+      networkInterfaces(),
+      networkGatewayDefault(),
+    ]);
+    const networkInfo = {
+      networkInterfaces: ni,
+      networkGatewayDefault: ngd,
+    };
     const netwokJosnFilePath = resolve(pathConfig.networkPath);
     await writeFile(
       netwokJosnFilePath,

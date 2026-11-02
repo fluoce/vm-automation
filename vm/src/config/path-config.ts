@@ -5,6 +5,8 @@ export const pathConfig = {
   hardwarePath: "src/data/hardware.json",
   networkPath: "src/data/network.json",
   portPath: "src/data/port.json",
+  processPath: "src/data/process.json",
   dockerPath: "src/data/docker.json",
   servicePath: "src/data/service.json",
+  softwarePath: "src/data/software.json",
 };

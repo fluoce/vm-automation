@@ -5,11 +5,11 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function serviceScript() {
-  const [s] = await Promise.all([services("*")]);
-  const serviceInfo = {
-    services: s,
-  };
   tryCatchUtil(async () => {
+    const [s] = await Promise.all([services("*")]);
+    const serviceInfo = {
+      services: s,
+    };
     const serviceJosnFilePath = resolve(pathConfig.servicePath);
     await writeFile(
       serviceJosnFilePath,
