@@ -9,4 +9,5 @@ export const pathConfig = {
   dockerPath: "src/data/docker.json",
   servicePath: "src/data/service.json",
   softwarePath: "src/data/software.json",
+  softwareIconDir: "src/data/icon",
 };
