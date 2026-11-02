@@ -20,6 +20,6 @@ export async function executeCommandUtil({
 }) {
   return tryCatchUtil(async () => {
     const { stdout } = await run(command, [...args], { ...options });
-    return (stdout as string).trim();
+    return String(stdout).trim();
   });
 }

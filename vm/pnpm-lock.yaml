@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      systeminformation:
+        specifier: ^5.33.19
+        version: 5.33.19
     devDependencies:
       '@types/node':
         specifier: ^26.6.6
@@ -309,6 +313,12 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  systeminformation@5.33.19:
+    resolution: {integrity: sha512-Zm7wGeCG7PqfvzegMJIzrxICopWqYCeLATVmvxOOci1isLcNVKgY4Fr0hhYQzvc7cgtK3377jQVChTFAnznOiA==}
+    engines: {node: '>=10.0.0'}
+    os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
+    hasBin: true
+
   tsx@4.23.15:
     resolution: {integrity: sha512-Yiex1Ovn8z2xPpOWckIiysV1SSyRMY9BkLF++q0yKiDxCqRhosKfMg3janKkiLBwZ5c/YryloKwGZcrEmtwxKw==}
     engines: {node: '>=18.0.0'}
@@ -497,6 +507,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  systeminformation@5.33.19: {}
 
   tsx@4.23.15:
     dependencies:

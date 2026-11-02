@@ -1,38 +1,69 @@
-import os from "node:os";
-import fs from "node:fs/promises";
+import {
+  system,
+  cpu,
+  diskLayout,
+  blockDevices,
+  fsSize,
+  mem,
+  memLayout,
+  baseboard,
+  bios,
+  chassis,
+  graphics,
+  usb,
+  printer,
+  battery,
+} from "systeminformation";
+import { writeFile } from "node:fs/promises";
 import { tryCatchUtil } from "../util/try-catch-util.ts";
-import path from "node:path";
+import { resolve } from "node:path";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function hardwareScript() {
   tryCatchUtil(async () => {
-    const cpus = os.cpus();
-    const diskPath = os.platform() === "win32" ? "C:\\" : "/";
-    const disk = await fs.statfs(diskPath);
+    const [s, c, dl, bd, fs, m, ml, bb, b, cs, g, u, p, by] = await Promise.all(
+      [
+        system(),
+        cpu(),
+        diskLayout(),
+        blockDevices(),
+        fsSize(),
+        mem(),
+        memLayout(),
+        baseboard(),
+        bios(),
+        chassis(),
+        graphics(),
+        usb(),
+        printer(),
+        battery(),
+      ],
+    );
     const hardwareInfo = {
-      cpu: {
-        model: cpus[0]?.model ?? null,
-        logicalCores: cpus.length,
-        architecture: os.arch(),
-        speed: cpus[0]?.speed ?? null,
+      system: s,
+      cpu: c,
+      disk: {
+        layout: dl,
+        devices: bd,
+        filesystems: fs,
       },
       memory: {
-        total: os.totalmem(),
-        free: os.freemem(),
-        used: os.totalmem() - os.freemem(),
+        ...m,
+        layout: ml,
       },
-      disk: {
-        total: disk.blocks * disk.bsize,
-        free: disk.bfree * disk.bsize,
-        available: disk.bavail * disk.bsize,
-        used: (disk.blocks - disk.bfree) * disk.bsize,
-      },
+      baseboard: bb,
+      bios: b,
+      chassis: cs,
+      graphics: g,
+      usb: u,
+      printer: p,
+      battery: by,
       metadata: {
         scannedAt: new Date().toISOString(),
       },
     };
-    const hardwareJosnFilePath = path.resolve(pathConfig.hardwarePath);
-    await fs.writeFile(
+    const hardwareJosnFilePath = resolve(pathConfig.hardwarePath);
+    await writeFile(
       hardwareJosnFilePath,
       JSON.stringify(hardwareInfo, null, 2),
       "utf-8",
