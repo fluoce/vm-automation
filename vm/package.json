@@ -10,12 +10,14 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
+    "@types/find": "^0.2.4",
     "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
   "dependencies": {
     "file-icon-extractor": "^1.0.4",
+    "find": "^0.3.0",
     "get-installed-apps": "^1.1.1",
     "ico-extract": "^0.1.0",
     "linux-desktop": "^1.0.3",

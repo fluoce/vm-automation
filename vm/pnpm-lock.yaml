@@ -11,6 +11,9 @@ importers:
       file-icon-extractor:
         specifier: ^1.0.4
         version: 1.0.4
+      find:
+        specifier: ^0.3.0
+        version: 0.3.0
       get-installed-apps:
         specifier: ^1.1.1
         version: 1.1.1
@@ -24,6 +27,9 @@ importers:
         specifier: ^5.33.19
         version: 5.33.19
     devDependencies:
+      '@types/find':
+        specifier: ^0.2.4
+        version: 0.2.4
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -191,6 +197,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@types/find@0.2.4':
+    resolution: {integrity: sha512-8cw1q8jruVOJoojgx8CimvFC4SP+sevnKOifRJTKXsngeWi/md1womzXRBv/LWNCoDEh4U51zc3r8HUAH2QyEg==}
 
   '@types/node@26.6.6':
     resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
@@ -486,6 +495,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.28.2':
     optional: true
+
+  '@types/find@0.2.4': {}
 
   '@types/node@26.6.6':
     dependencies:
