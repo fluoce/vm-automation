@@ -20,7 +20,7 @@ import { resolve } from "node:path";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function hardwareScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [s, c, dl, bd, fs, m, ml, bb, b, cs, g, u, p, by] = await Promise.all(
       [
         system(),

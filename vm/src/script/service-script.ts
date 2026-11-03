@@ -5,7 +5,7 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function serviceScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [s] = await Promise.all([services("*")]);
     const serviceInfo = {
       services: s,

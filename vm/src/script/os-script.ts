@@ -5,7 +5,7 @@ import { pathConfig } from "../config/path-config.ts";
 import { tryCatchUtil } from "../util/try-catch-util.ts";
 
 export async function osScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const osi = await osInfo();
     const osJosnFilePath = resolve(pathConfig.osPath);
     await writeFile(

@@ -5,7 +5,7 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function processScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [p] = await Promise.all([processes()]);
     const networkInfo = {
       processes: p,

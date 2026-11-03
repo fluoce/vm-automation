@@ -10,7 +10,7 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function dockerScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [di, dc, dis, dv] = await Promise.all([
       dockerInfo(),
       dockerContainers(),

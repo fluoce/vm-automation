@@ -14,6 +14,9 @@ importers:
       get-installed-apps:
         specifier: ^1.1.1
         version: 1.1.1
+      ico-extract:
+        specifier: ^0.1.0
+        version: 0.1.0
       systeminformation:
         specifier: ^5.33.19
         version: 5.33.19
@@ -347,6 +350,9 @@ packages:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
     engines: {node: '>=4'}
 
+  ico-extract@0.1.0:
+    resolution: {integrity: sha512-IfBtoThfN5VnvgmD5N91sE5/502z0Fp8k5c79+ED0/Vcw6g3XafnSVJXRrHX7ACttJtOak/spY22ruGwZRw23w==}
+
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
@@ -591,6 +597,8 @@ snapshots:
       iconv-lite: 0.6.3
 
   has-flag@3.0.0: {}
+
+  ico-extract@0.1.0: {}
 
   iconv-lite@0.6.3:
     dependencies:

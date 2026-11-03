@@ -5,7 +5,7 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function networkScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [ni, ngd] = await Promise.all([
       networkInterfaces(),
       networkGatewayDefault(),

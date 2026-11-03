@@ -5,7 +5,7 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function portScript() {
-  tryCatchUtil(async () => {
+  await tryCatchUtil(async () => {
     const [nc] = await Promise.all([networkConnections()]);
     const networkInfo = {
       networkConnections: nc,
