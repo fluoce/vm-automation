@@ -8,7 +8,7 @@ export async function userScript() {
   await tryCatchUtil(async () => {
     const [u] = await Promise.all([users()]);
     const userInfo = {
-      user: u,
+      users: u,
     };
     const userJosnFilePath = resolve(pathConfig.userPath);
     await writeFile(

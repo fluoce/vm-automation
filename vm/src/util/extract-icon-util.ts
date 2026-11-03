@@ -1,6 +1,7 @@
 import { extractIcon } from "ico-extract";
 import { readFile, writeFile, copyFile } from "node:fs/promises";
 import { join, extname } from "node:path";
+import { writeLogUtil } from "./write-log-util.ts";
 
 const PE_EXTS = new Set([".exe", ".dll"]);
 
@@ -32,7 +33,11 @@ export function extractIconUtil(
             await copyFile(job.iconPath, outputPath);
           }
         } catch (e) {
-          console.error("icon extract failed:", job.iconPath, e);
+          const errorMessage = e instanceof Error ? e.message : String(e);
+          writeLogUtil({
+            type: "WARN",
+            message: `icon extract failed: ${job.iconPath} - ${errorMessage}`,
+          });
         } finally {
           active--;
           runNext();

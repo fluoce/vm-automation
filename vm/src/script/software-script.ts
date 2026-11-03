@@ -4,6 +4,7 @@ import { resolve, join, basename, extname } from "node:path";
 import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 import { extractIconUtil } from "../util/extract-icon-util.ts";
+import { findFallbackExeUtil } from "../util/find-fallback-exe-util.ts";
 
 export async function softwareScript() {
   await tryCatchUtil(async () => {
@@ -15,15 +16,24 @@ export async function softwareScript() {
     if (Array.isArray(installedSoftwares)) {
       for (const software of installedSoftwares) {
         let iconSrc: string | null = null;
+        let finalIconPath: string | null = null;
         if (software?.DisplayIcon) {
-          const iconPath = software.DisplayIcon.replace(/^"/, "")
+          finalIconPath = software.DisplayIcon.replace(/^"/, "")
             .replace(/",\s*-?\d+$/, "")
             .replace(/,\s*-?\d+$/, "")
             .replace(/"$/, "")
             .trim();
-          const iconFileName = `${basename(iconPath, extname(iconPath))}.ico`;
+        } else if (software?.InstallLocation) {
+          const appName = software.DisplayName || software.appName || "";
+          finalIconPath = await findFallbackExeUtil(
+            software.InstallLocation,
+            appName,
+          );
+        }
+        if (finalIconPath) {
+          const iconFileName = `${basename(finalIconPath, extname(finalIconPath))}.ico`;
           iconSrc = join(softwareIconsDir, iconFileName);
-          iconJobs.push({ iconPath, iconFileName });
+          iconJobs.push({ iconPath: finalIconPath, iconFileName });
         }
         softwares.push({
           appIdentifier: software?.appIdentifier || null,
@@ -45,9 +55,9 @@ export async function softwareScript() {
     const softwareInfo = {
       softwares,
     };
-    const softwareJosnFilePath = resolve(pathConfig.softwarePath);
+    const softwareJsonFilePath = resolve(pathConfig.softwarePath);
     await writeFile(
-      softwareJosnFilePath,
+      softwareJsonFilePath,
       JSON.stringify(softwareInfo, null, 2),
       "utf-8",
     );

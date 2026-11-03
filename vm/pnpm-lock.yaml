@@ -17,6 +17,9 @@ importers:
       ico-extract:
         specifier: ^0.1.0
         version: 0.1.0
+      linux-desktop:
+        specifier: ^1.0.3
+        version: 1.0.3
       systeminformation:
         specifier: ^5.33.19
         version: 5.33.19
@@ -338,6 +341,9 @@ packages:
   file-icon-extractor@1.0.4:
     resolution: {integrity: sha512-hFg/CTeTkcJ+pJXHyh/W6isa48eW+sFVOEzL+zK6AKb84PUQtE6Hbu8MPlxp09tw0Nq8WgG4DgfKL6z41nMCzA==}
 
+  find@0.3.0:
+    resolution: {integrity: sha512-iSd+O4OEYV/I36Zl8MdYJO0xD82wH528SaCieTVHhclgiYNe9y+yPKSwK+A7/WsmHL1EZ+pYUJBXWTL5qofksw==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -356,6 +362,10 @@ packages:
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
+
+  linux-desktop@1.0.3:
+    resolution: {integrity: sha512-zer2QrMwNjNsGXw7t1dGYU1ABJH/2Bgngk0z76Yif5vdxbrrJNMYjZM9QWY4AWefNhuiENExCQJ6Bau3Qn3Nqg==}
+    os: [linux]
 
   nanoid@3.3.20:
     resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
@@ -380,6 +390,9 @@ packages:
     engines: {node: '>=10.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
+
+  traverse-chain@0.1.0:
+    resolution: {integrity: sha512-up6Yvai4PYKhpNp5PkYtx50m3KbwQrqDwbuZP/ItyL64YEWHAvH6Md83LFLV/GRSk/BoUVwwgUzX6SOQSbsfAg==}
 
   tsx@4.23.15:
     resolution: {integrity: sha512-Yiex1Ovn8z2xPpOWckIiysV1SSyRMY9BkLF++q0yKiDxCqRhosKfMg3janKkiLBwZ5c/YryloKwGZcrEmtwxKw==}
@@ -589,6 +602,10 @@ snapshots:
     dependencies:
       node-powershell: 4.0.0
 
+  find@0.3.0:
+    dependencies:
+      traverse-chain: 0.1.0
+
   fsevents@2.3.3:
     optional: true
 
@@ -603,6 +620,10 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
+
+  linux-desktop@1.0.3:
+    dependencies:
+      find: 0.3.0
 
   nanoid@3.3.20: {}
 
@@ -622,6 +643,8 @@ snapshots:
       has-flag: 3.0.0
 
   systeminformation@5.33.19: {}
+
+  traverse-chain@0.1.0: {}
 
   tsx@4.23.15:
     dependencies:

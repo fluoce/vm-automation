@@ -18,6 +18,7 @@
     "file-icon-extractor": "^1.0.4",
     "get-installed-apps": "^1.1.1",
     "ico-extract": "^0.1.0",
+    "linux-desktop": "^1.0.3",
     "systeminformation": "^5.33.19"
   }
 }
