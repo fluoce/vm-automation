@@ -5,10 +5,14 @@ import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
 import { extractIconUtil } from "../util/extract-icon-util.ts";
 import { findFallbackExeUtil } from "../util/find-fallback-exe-util.ts";
+import { linuxGetInstalledApps } from "../util/linux-get-installed-apps.ts";
 
 export async function softwareScript() {
   await tryCatchUtil(async () => {
-    const installedSoftwares = await getInstalledApps();
+    const installedSoftwares =
+      process.platform === "linux"
+        ? await linuxGetInstalledApps()
+        : await getInstalledApps();
     const softwareIconsDir = resolve(pathConfig.softwareIconDir);
     await mkdir(softwareIconsDir, { recursive: true });
     const softwares: any[] = [];

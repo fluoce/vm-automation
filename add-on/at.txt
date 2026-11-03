@@ -1,1 +1,0 @@
-- vm\node_modules\get-installed-apps\src\index.ts

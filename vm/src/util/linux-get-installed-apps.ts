@@ -1,8 +1,8 @@
 import linuxDesktop from "linux-desktop";
 
-export async function getInstalledApps() {
+export async function linuxGetInstalledApps() {
   await linuxDesktop.indexItems();
-  const items = linuxDesktop.items; 
+  const items = linuxDesktop.items;
   const apps: any[] = [];
   for (const key of Object.keys(items)) {
     const item = items[key];
@@ -11,10 +11,10 @@ export async function getInstalledApps() {
     apps.push({
       appName: item.Name,
       appIdentifier: item.Exec ? item.Exec.split(" ")[0] : item.Name,
-      appVersion: null, 
+      appVersion: null,
       publisher: null,
       installLocation: item.Path || null,
-      displayIcon: item.Icon, 
+      displayIcon: item.Icon,
       comments: item.Comment || null,
     });
   }
