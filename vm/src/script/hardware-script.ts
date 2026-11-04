@@ -15,7 +15,7 @@ import {
   battery,
 } from "systeminformation";
 import { writeFile } from "node:fs/promises";
-import { tryCatchUtil } from "../util/try-catch-util.ts";
+import { tryCatchUtil } from "../util/index.ts";
 import { resolve } from "node:path";
 import { pathConfig } from "../config/path-config.ts";
 

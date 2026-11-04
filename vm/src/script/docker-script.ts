@@ -6,8 +6,8 @@ import {
 } from "systeminformation";
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { tryCatchUtil } from "../util/try-catch-util.ts";
 import { pathConfig } from "../config/path-config.ts";
+import { tryCatchUtil } from "../util/index.ts";
 
 export async function dockerScript() {
   await tryCatchUtil(async () => {

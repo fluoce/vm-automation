@@ -2,7 +2,7 @@ import { osInfo } from "systeminformation";
 import { resolve } from "node:path";
 import { writeFile } from "node:fs/promises";
 import { pathConfig } from "../config/path-config.ts";
-import { tryCatchUtil } from "../util/try-catch-util.ts";
+import { tryCatchUtil } from "../util/index.ts";
 
 export async function osScript() {
   await tryCatchUtil(async () => {

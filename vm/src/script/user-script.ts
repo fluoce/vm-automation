@@ -1,7 +1,7 @@
 import { users } from "systeminformation";
 import { writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { tryCatchUtil } from "../util/try-catch-util.ts";
+import { tryCatchUtil } from "../util/index.ts";
 import { pathConfig } from "../config/path-config.ts";
 
 export async function userScript() {
